@@ -1,0 +1,9 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package pl.pb.grpcexample.grpcmapping;
+
+message HelloGrpc {
+  // this is a field ;) <- yea, comments are also available ;)
+  string firstMessage = 1;
+  string secondMessage = 2;
+}

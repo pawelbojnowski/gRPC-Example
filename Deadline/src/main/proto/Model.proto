@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+package pl.pb.grpcexample.deadline;
+
+
+message DeadlineRequest{
+  int32 countOfResponse = 1;
+}
+
+message DeadlineResponse{
+  string message = 1;
+}
+
+
+service DeadlineService{
+
+  rpc runWithoutContext(DeadlineRequest) returns (stream DeadlineResponse);
+
+  rpc runWithContext(DeadlineRequest) returns (stream DeadlineResponse);
+}

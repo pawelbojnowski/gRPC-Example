@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+package pl.pb.grpcexample.grpcunary;
+
+
+message DataRequest{
+  string data = 1;
+}
+
+message DataResponse{
+  string data = 1;
+}
+
+
+service ErrorHandlerService{
+  rpc DataUnary(DataRequest) returns (DataResponse);
+  rpc DataServerStreaming(DataRequest) returns (stream DataResponse);
+  rpc DataClientStreaming(stream DataRequest) returns (DataResponse);
+  rpc DataBidirectionalStreaming(stream DataRequest) returns (stream DataResponse);
+}

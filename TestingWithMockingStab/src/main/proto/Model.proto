@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+option java_multiple_files = true;
+package pl.pb.grpcexample.testingwithmockingstab;
+
+
+
+
+message ExampleRequest{
+  string message = 1;
+}
+
+message ExampleResponse{
+  string message = 1;
+}
+
+
+service ExampleService{
+
+  rpc run(ExampleRequest) returns (ExampleResponse);
+}

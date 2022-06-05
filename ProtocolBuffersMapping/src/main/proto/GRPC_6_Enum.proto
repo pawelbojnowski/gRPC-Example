@@ -1,0 +1,22 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package pl.pb.grpcexample.grpcmapping;
+
+enum ClientType {
+  UNKNOWN_CLIENT_TYPE = 0;
+  REGULAR = 1 ;
+  PREMIUM = 2 ;
+  SUPER_PREMIUM = 3 ;
+}
+
+enum AnotherEnumType {
+  UNKNOWN_ANOTHER_ENUM_TYPE = 0;
+  //in one proto file you cannot use same enum value in 2 differente enum type
+  //REGULAR = 1 ;
+
+}
+
+message Client {
+  string name = 1;
+  ClientType ClientType = 2;
+}

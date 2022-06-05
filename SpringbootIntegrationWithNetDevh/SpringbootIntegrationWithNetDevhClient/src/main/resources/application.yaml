@@ -1,0 +1,5 @@
+grpc:
+  client:
+    GLOBAL:
+      address: static://localhost:6000
+      negotiation-type: PLAINTEXT

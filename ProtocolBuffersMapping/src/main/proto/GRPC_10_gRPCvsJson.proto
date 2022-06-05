@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+package pl.pb.grpcexample.grpcmapping;
+
+
+message GrpcObject{
+  string title = 1;
+  string description = 2;
+  int32 oneMoreFiled = 3;
+  bool otherFiled = 4;
+}

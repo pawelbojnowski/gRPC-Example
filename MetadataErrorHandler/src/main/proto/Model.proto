@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+package pl.pb.grpcexample.metadataerrorhandler;
+
+
+message DeadlineRequest{
+  int32 processingSeconds = 1;
+}
+
+message DeadlineResponse{
+  string message = 1;
+}
+
+message ErrorMessage {
+  string title = 1;
+  string description = 2;
+}
+
+
+
+
+service DeadlineService{
+
+  rpc run(DeadlineRequest) returns (DeadlineResponse);
+  rpc run1(DeadlineRequest) returns (DeadlineResponse);
+}
+

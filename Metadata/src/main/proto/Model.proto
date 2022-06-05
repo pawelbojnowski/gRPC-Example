@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+package pl.pb.grpcexample.metadata;
+import "google/protobuf/empty.proto";
+
+service MetadataService{
+
+  rpc run(google.protobuf.Empty) returns (google.protobuf.Empty);
+}

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+package pl.pb.grpcexample.springbootintegrationprotocontract;
+
+message GetStatisticRequest{
+  string text = 1;
+}
+
+message GetStatisticResponse{
+  int32 totalCountOfLetter = 1;
+  int32 totalCountOfWord = 2;
+  map<string, int64> countOfEachLetter = 3;
+  map<string, int64> countOfEachWord = 4;
+}
+
+
+service TextService{
+
+  rpc GetStatistic(GetStatisticRequest) returns (GetStatisticResponse);
+}

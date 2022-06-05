@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+
+option java_multiple_files = true;
+package pl.pb.grpcexample.grpcmapping;
+
+message WrappersTypes {
+  google.protobuf.Int32Value int_value = 1;
+  google.protobuf.Int64Value long_value = 2;
+  google.protobuf.FloatValue float_value = 3;
+  google.protobuf.DoubleValue double_value = 4;
+  google.protobuf.BoolValue bool_value = 5;
+  google.protobuf.StringValue string_value = 6;
+  google.protobuf.BytesValue bytes_value = 7;
+}

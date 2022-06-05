@@ -1,0 +1,16 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package pl.pb.grpcexample.grpcmapping;
+
+message Engine {
+  string model = 1;
+  int32 cylindersCount = 2;
+  float size = 3;
+  int32 horsePower = 4;
+}
+
+message Car {
+  string brand = 1;
+  string model = 2;
+  Engine engine = 3;
+}

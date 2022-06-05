@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+package pl.pb.grpcexample.context;
+
+
+//message DeadlineRequest{
+//  int32 processingSeconds = 1;
+//}
+//
+//message DeadlineResponse{
+//  string message = 1;
+//}
+//
+//
+//service ContextService{
+//
+//  rpc run(DeadlineRequest) returns (DeadlineResponse);
+//}
+
+import "google/protobuf/empty.proto";
+
+
+service ContextService{
+  rpc run(google.protobuf.Empty) returns (google.protobuf.Empty);
+}

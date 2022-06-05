@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "GRPC_7_ModulesAndImports/Commons.proto";
+
+option java_multiple_files = true;
+package pl.pb.grpcexample.grpcmapping;
+
+
+message CustomerDetails {
+  Customer custome = 1;
+  string phone = 3;
+}

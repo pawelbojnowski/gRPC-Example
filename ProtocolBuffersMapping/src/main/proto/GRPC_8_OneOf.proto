@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+
+option java_multiple_files = true;
+package pl.pb.grpcexample.grpcmapping;
+
+
+message RestConnectionConfiguration{
+  string host = 1;
+  string Port = 2;
+}
+
+message GRPCConnectionConfiguration{
+  string host = 1;
+  string Port = 2;
+  string contractUrl = 3;
+}
+
+message ConnectionConfiguration {
+  oneof config {
+    RestConnectionConfiguration restConnectionConfiguration = 1;
+    GRPCConnectionConfiguration grpcConnectionConfiguration = 2;
+  }
+}

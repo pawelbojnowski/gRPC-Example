@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+package pl.pb.grpcexample.grpcserverstreamingapi;
+
+
+message RandoNumbersRequest{
+  int32 numberOfRandomNumbers = 1;
+}
+
+message RandoNumbersResponse{
+  int32 randomNumber = 1;
+}
+
+
+service NumberGeneratorService{
+  rpc GetRandoNumbers(RandoNumbersRequest) returns (stream RandoNumbersResponse);
+}

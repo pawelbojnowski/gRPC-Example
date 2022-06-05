@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+package pl.pb.grpcexample.grpcclientstreamingapi;
+
+
+message LettersCountRequest{
+  string text = 1;
+}
+
+message LettersCountResponse{
+  map<string, int64> letters_counts = 1;
+}
+
+service TextService{
+  rpc GetLettersCount(stream LettersCountRequest) returns (LettersCountResponse);
+}
