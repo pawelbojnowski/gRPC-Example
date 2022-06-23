@@ -12,7 +12,7 @@ public class MainClient {
 
   public static final DeadlineRequest REQUEST = DeadlineRequest.newBuilder().setProcessingSeconds(5).build();
 
-  public static void main(String[] args) throws InterruptedException {
+  public static void main(String[] args) {
 
     //Create connection
     ManagedChannel managedChannel = ManagedChannelBuilder.forAddress("localhost", 6000)

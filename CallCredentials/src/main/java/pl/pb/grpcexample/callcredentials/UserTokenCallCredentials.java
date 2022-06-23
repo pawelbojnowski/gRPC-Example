@@ -6,7 +6,7 @@ import java.util.concurrent.Executor;
 
 public class UserTokenCallCredentials extends CallCredentials {
 
-  private final static Metadata.Key userToken = Metadata.Key.of("user-token", Metadata.ASCII_STRING_MARSHALLER);
+  private static final Metadata.Key userToken = Metadata.Key.of("user-token", Metadata.ASCII_STRING_MARSHALLER);
   private final String tokenValue;
 
   public UserTokenCallCredentials(String tokenValue) {
@@ -24,6 +24,6 @@ public class UserTokenCallCredentials extends CallCredentials {
 
   @Override
   public void thisUsesUnstableApi() {
-
+    //Not implemented
   }
 }

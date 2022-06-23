@@ -23,8 +23,8 @@ public class TestComponent {
         .collect(Collectors.toList());
 
     //do requests with REST and gRPC
-    long restProcessedTime = doRequest("REST", listOfRandomText, text -> textService.doRestRequest(text));
-    long gRPCProcessedTime = doRequest("gRPC", listOfRandomText, text -> textService.doGrpcRequest(text));
+    long restProcessedTime = doRequest("REST", listOfRandomText, textService::doRestRequest);
+    long gRPCProcessedTime = doRequest("gRPC", listOfRandomText, textService::doGrpcRequest);
 
     //let's check which type of communication have won ;)
     if (restProcessedTime == gRPCProcessedTime) {

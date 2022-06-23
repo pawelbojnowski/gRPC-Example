@@ -23,7 +23,7 @@ public class MainClient {
       public void onNext(LettersCountResponse lettersCountResponse) {
         lettersCountResponse.getLettersCountsMap()
             .entrySet()
-            .forEach(entry -> System.out.println("Client onNext(): " +entry.getKey() + ":" + entry.getValue()));
+            .forEach(entry -> System.out.println("Client onNext(): " + entry.getKey() + ":" + entry.getValue()));
       }
 
       @Override
