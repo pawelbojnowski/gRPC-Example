@@ -8,7 +8,7 @@ import pl.pb.grpcexample.grpcmapping.GrpcObject;
 
 public class GRPC_10_gRPCvsJson {
 
-  public static void main(String[] args) throws InvalidProtocolBufferException, JsonProcessingException {
+  public static void main(String[] args) {
 
     runGRPC();
     /**
@@ -33,7 +33,7 @@ public class GRPC_10_gRPCvsJson {
     run(() -> {
       try {
         byte[] toByte = grpcObject.toByteArray();
-        GrpcObject toObject = GrpcObject.parseFrom(toByte);
+        GrpcObject.parseFrom(toByte);
       } catch (InvalidProtocolBufferException e) {
         e.printStackTrace();
       }
@@ -50,7 +50,7 @@ public class GRPC_10_gRPCvsJson {
     run(() -> {
       try {
         String toString = objectMapper.writeValueAsString(jsonObject);
-        JsonObject toObject = objectMapper.readValue(toString, JsonObject.class);
+        objectMapper.readValue(toString, JsonObject.class);
       } catch (JsonProcessingException e) {
         e.printStackTrace();
       }

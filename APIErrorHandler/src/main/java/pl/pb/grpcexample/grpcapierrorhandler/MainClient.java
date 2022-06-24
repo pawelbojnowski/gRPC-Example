@@ -12,6 +12,8 @@ import pl.pb.grpcexample.grpcunary.ErrorHandlerServiceGrpc;
 
 public class MainClient {
 
+  public static final String SEPARATOR = "*********************************************************************\n";
+
   public static void main(String[] args) {
 
     //Create connection
@@ -40,7 +42,7 @@ public class MainClient {
      * Response: OK
      * Server streaming request return Exception: io.grpc.StatusRuntimeException: INVALID_ARGUMENT: User sent ERROR in request
      */
-    System.out.println("*********************************************************************\n");
+    System.out.println(SEPARATOR);
   }
 
 
@@ -48,16 +50,14 @@ public class MainClient {
     System.out.println("********************* Server Streaming Request **********************");
     try {
       dataServiceBlockingStub.dataServerStreaming(DataRequest.newBuilder().setData("PROCESSING,ERROR,CLOSE").build())
-          .forEachRemaining(dataResponse -> {
-            System.out.println("Response: " + dataResponse.getData());
-          });
+          .forEachRemaining(dataResponse -> System.out.println("Response: " + dataResponse.getData()));
     } catch (Exception e) {
       System.out.println("Server streaming request return Exception: " + e);
     }
     /**
      * Unary request return Exception: io.grpc.StatusRuntimeException: INVALID_ARGUMENT: User sent ERROR in request
      */
-    System.out.println("*********************************************************************\n");
+    System.out.println(SEPARATOR);
   }
 
   private static void clientStreamingRequest(ErrorHandlerServiceGrpc.ErrorHandlerServiceStub dataServiceStub) {
@@ -101,7 +101,7 @@ public class MainClient {
      * Client streaming request return Exception: java.lang.IllegalStateException: Stream was terminated by error, no further calls are allowed
      * onNext(): io.grpc.StatusRuntimeException: CANCELLED: Cancelled by client with StreamObserver.onError()
      */
-    System.out.println("*********************************************************************\n");
+    System.out.println(SEPARATOR);
   }
 
   private static void bidirectionalStreamingRequest(ErrorHandlerServiceGrpc.ErrorHandlerServiceStub dataServiceStub) {
@@ -141,7 +141,7 @@ public class MainClient {
     } catch (Exception e) {
       System.out.println("Bidirectional streaming request return Exception: " + e);
     }
-    System.out.println("*********************************************************************\n");
+    System.out.println(SEPARATOR);
   }
 
 }

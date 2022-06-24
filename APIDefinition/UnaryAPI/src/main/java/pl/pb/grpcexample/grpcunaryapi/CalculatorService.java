@@ -20,7 +20,6 @@ public class CalculatorService extends CalculatorServiceGrpc.CalculatorServiceIm
   }
 
   private Integer processSumOperation(SumOperationRequest request) {
-    Integer integer = request.getNumbersList().stream().reduce((i1, i2) -> i1 + i2).orElse(0);
-    return integer;
+    return request.getNumbersList().stream().reduce((i1, i2) -> i1 + i2).orElse(0);
   }
 }

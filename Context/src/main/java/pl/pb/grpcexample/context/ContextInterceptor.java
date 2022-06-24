@@ -10,7 +10,7 @@ import io.grpc.ServerInterceptor;
 
 public class ContextInterceptor implements ServerInterceptor {
 
-  final static Metadata.Key REQUEST_ID = Metadata.Key.of("request-id", Metadata.ASCII_STRING_MARSHALLER);
+  final static Metadata.Key<String> REQUEST_ID = Metadata.Key.of("request-id", Metadata.ASCII_STRING_MARSHALLER);
 
   @Override
   public <ReqT, RespT> Listener<ReqT> interceptCall(ServerCall<ReqT, RespT> call, Metadata headers, ServerCallHandler<ReqT, RespT> next) {

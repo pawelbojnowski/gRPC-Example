@@ -22,11 +22,11 @@ public class TextProcessor {
   public Map<String, Long> getAllCountOfEachLetter(String text) {
     return text.trim().replace(SPACE, EMPTY).chars()
         .mapToObj(e -> (char) e)
-        .collect(groupingBy(character -> String.valueOf(character), counting()));
+        .collect(groupingBy(String::valueOf, counting()));
   }
 
   public Map<String, Long> getAllCountOfEachWord(String text) {
     return Stream.of(text.trim().split(SPACE))
-        .collect(groupingBy(character -> String.valueOf(character), counting()));
+        .collect(groupingBy(String::valueOf, counting()));
   }
 }

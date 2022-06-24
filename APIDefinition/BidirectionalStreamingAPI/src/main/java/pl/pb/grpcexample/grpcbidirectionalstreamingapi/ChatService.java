@@ -18,6 +18,10 @@ public class ChatService extends ChatServiceGrpc.ChatServiceImplBase {
         System.out.println(String.format("Server onNext() with user id: %s at %s", addJoinedUserToChatChatRequest.getUserId(), new Date()));
         addUser(addJoinedUserToChatChatRequest);
         AddJoinedUserToChatChatResponse response = AddJoinedUserToChatChatResponse.newBuilder().setCountOfJoinedUser(countOfUser).build();
+
+        //We send to client more than one message...
+        responseObserver.onNext(response);
+        responseObserver.onNext(response);
         responseObserver.onNext(response);
       }
 
@@ -36,7 +40,7 @@ public class ChatService extends ChatServiceGrpc.ChatServiceImplBase {
   private void addUser(AddJoinedUserToChatChatRequest addJoinedUserToChatChatRequest) {
 
     /**
-     * Lets imagine that we do something with usedId from request
+     * Let imagine that we do something with usedId from request
      */
     countOfUser++;
   }

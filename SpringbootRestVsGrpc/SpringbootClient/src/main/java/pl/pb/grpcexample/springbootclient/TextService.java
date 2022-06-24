@@ -13,10 +13,9 @@ import pl.pb.grpcexample.springbootintegrationprotocontract.TextServiceGrpc.Text
 @RequiredArgsConstructor
 public class TextService {
 
+  private final RestTemplate restTemplate;
   @GrpcClient("textService")
   private TextServiceBlockingStub exampleServiceBlockingStub;
-
-  private final RestTemplate restTemplate;
 
   public GetStatisticResponse doGrpcRequest(String text) {
     GetStatisticRequest request = GetStatisticRequest.newBuilder().setText(text).build();

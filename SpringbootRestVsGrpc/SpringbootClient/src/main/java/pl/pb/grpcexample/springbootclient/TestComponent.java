@@ -2,7 +2,7 @@ package pl.pb.grpcexample.springbootclient;
 
 import java.util.List;
 import java.util.UUID;
-import java.util.function.Function;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +27,20 @@ public class TestComponent {
     long gRPCProcessedTime = doRequest("gRPC", listOfRandomText, textService::doGrpcRequest);
 
     //let's check which type of communication have won ;)
+    displaywinner(restProcessedTime, gRPCProcessedTime);
+  }
+
+  private long doRequest(String rest, List<String> listOfText, Consumer<String> doRequest) {
+    long start = System.currentTimeMillis();
+    listOfText.forEach(s -> doRequest.accept(s));
+    long end = System.currentTimeMillis();
+
+    long timeIsMilliseconds = end - start;
+    System.out.println("Texts was processed with " + rest + " communication in: " + timeIsMilliseconds + " ms");
+    return timeIsMilliseconds;
+  }
+
+  private void displaywinner(long restProcessedTime, long gRPCProcessedTime) {
     if (restProcessedTime == gRPCProcessedTime) {
       System.out.println("The same time");
     } else if (restProcessedTime < gRPCProcessedTime) {
@@ -35,18 +49,6 @@ public class TestComponent {
       System.out.println("gRPC WIN ! ! !");
     }
     System.out.println();
-  }
-
-  private long doRequest(String rest, List<String> listOfText, Function<String, Object> doRequest) {
-    long start = System.currentTimeMillis();
-    listOfText.forEach(s -> {
-      Object response = doRequest.apply(s);
-    });
-    long end = System.currentTimeMillis();
-
-    long timeIsMiliseconds = end - start;
-    System.out.println("Texts was processed with " + rest + " communication in: " + timeIsMiliseconds + " ms");
-    return timeIsMiliseconds;
   }
 
 }

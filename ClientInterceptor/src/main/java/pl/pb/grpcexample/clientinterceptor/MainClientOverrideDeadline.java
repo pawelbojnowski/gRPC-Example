@@ -42,6 +42,7 @@ public class MainClientOverrideDeadline {
   private static void runRunWithOverridingDeadline(ManagedChannel managedChannel) {
     try {
       ClientInterceptorServiceBlockingStub deadlineServiceBlockingStub = ClientInterceptorServiceGrpc.newBlockingStub(managedChannel)
+          //Overriding Deadline
           .withDeadline(Deadline.after(4, TimeUnit.SECONDS)); //We don't need this, we have global own interceptor 'DeadlineInterceptor'
 
       Iterator<DeadlineResponse> responses = deadlineServiceBlockingStub.run(REQUEST);
