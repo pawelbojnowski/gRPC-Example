@@ -8,7 +8,7 @@ import pl.pb.grpcexample.grpcmapping.Types;
 public class GRPC_3_Types {
 
   public static void main(String[] args) throws IOException {
-    byte bytesArray[] = {98, 121, 116, 101, 115};
+    byte[] bytesArray = {98, 121, 116, 101, 115};
     final Types types = Types.newBuilder()
         .setIntValue(1)
         .setLongValue(2L)

@@ -77,7 +77,7 @@ public class GRPC_9_BackwardAndForwardCompatibility {
     Book_V3 bookV3 = Book_V3.newBuilder()
         .setTitle("Clean Code")
         .setAuthor("Robert C. Martin")
-//                .setPublisher("Helion") // <- Publisher was deleted
+        //.setPublisher("Helion") // <- Publisher was deleted
         .setPages(424)
         .build();
 
@@ -107,7 +107,7 @@ public class GRPC_9_BackwardAndForwardCompatibility {
     Book_WhenNameOfFieldIsChanged bookWhenNameOfFieldIsChanged = Book_WhenNameOfFieldIsChanged.newBuilder()
         .setTitle("Clean Code")
         .setAuthor("Robert C. Martin")
-//                .setPublisher("Helion") // <- Publisher was deleted
+        //.setPublisher("Helion") // <- Publisher was deleted
         .setLanguage("english")
         .build();
 
@@ -133,7 +133,7 @@ public class GRPC_9_BackwardAndForwardCompatibility {
     Book_WhenTypeOfFieldIsChanged bookWhenTypeOfFieldIsChanged = Book_WhenTypeOfFieldIsChanged.newBuilder()
         .setTitle("Clean Code")
         .setAuthor("Robert C. Martin")
-//                .setPublisher("Helion") // <- Publisher was deleted
+        //.setPublisher("Helion") // <- Publisher was deleted
         .setPages(424)
         .build();
 

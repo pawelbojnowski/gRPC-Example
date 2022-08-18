@@ -15,7 +15,7 @@ import pl.pb.grpcexample.grpcmapping.WrappersTypes;
 public class GRPC_3_WraperTypes {
 
   public static void main(String[] args) throws IOException {
-    byte bytesArray[] = {98, 121, 116, 101, 115};
+    byte[] bytesArray = {98, 121, 116, 101, 115};
     final WrappersTypes wrappersTypes = WrappersTypes.newBuilder()
         .setIntValue(Int32Value.of(1))
         .setLongValue(Int64Value.of(2L))
