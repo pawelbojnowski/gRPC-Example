@@ -26,7 +26,7 @@ public class TestComponent {
     long restProcessedTime = doRequest("REST", listOfRandomText, textService::doRestRequest);
     long gRPCProcessedTime = doRequest("gRPC", listOfRandomText, textService::doGrpcRequest);
 
-    //let's check which type of communication have won ;)
+    //let's check which type of communication won ;)
     displaywinner(restProcessedTime, gRPCProcessedTime);
   }
 
