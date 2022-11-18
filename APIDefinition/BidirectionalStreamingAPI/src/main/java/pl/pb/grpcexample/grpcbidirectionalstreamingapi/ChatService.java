@@ -15,10 +15,10 @@ public class ChatService extends ChatServiceGrpc.ChatServiceImplBase {
 
       @Override
       public void onNext(AddJoinedUserToChatChatRequest addJoinedUserToChatChatRequest) {
-        System.out.println(String.format("Server onNext() with user id: %s at %s", addJoinedUserToChatChatRequest.getUserId(), new Date()));
+        System.out.println(String.format("Server onNext(): user id: %s at %s", addJoinedUserToChatChatRequest.getUserId(), new Date()));
         addUser(addJoinedUserToChatChatRequest);
         AddJoinedUserToChatChatResponse response = AddJoinedUserToChatChatResponse.newBuilder().setCountOfJoinedUser(countOfUser).build();
-        
+
         responseObserver.onNext(response);
         //We can send to client more than one message...
 //        responseObserver.onNext(response);

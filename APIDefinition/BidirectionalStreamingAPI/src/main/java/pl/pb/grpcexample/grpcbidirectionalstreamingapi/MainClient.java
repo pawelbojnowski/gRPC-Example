@@ -24,7 +24,7 @@ public class MainClient {
     StreamObserver<AddJoinedUserToChatChatResponse> responseObserver = new StreamObserver<>() {
       @Override
       public void onNext(AddJoinedUserToChatChatResponse response) {
-        System.out.println(String.format("Client onNext() with count of joined user id: %s at %s", response.getCountOfJoinedUser(), new Date()));
+        System.out.println(String.format("Client onNext() with count: %s at %s", response.getCountOfJoinedUser(), new Date()));
       }
 
       @Override
