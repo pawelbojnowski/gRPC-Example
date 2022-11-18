@@ -16,15 +16,15 @@ public class MainClient {
         .usePlaintext()
         .build();
 
-    ChatServiceGrpc.ChatServiceStub aServiceStub = ChatServiceGrpc.newStub(managedChannel);
+    ChatServiceGrpc.ChatServiceStub chatServiceStub = ChatServiceGrpc.newStub(managedChannel);
 
     //Example stub request
 
     //Define response action
     StreamObserver<AddJoinedUserToChatChatResponse> responseObserver = new StreamObserver<>() {
       @Override
-      public void onNext(AddJoinedUserToChatChatResponse aResponse) {
-        System.out.println(String.format("Client onNext() with count of joined user id: %s at %s", aResponse.getCountOfJoinedUser(), new Date()));
+      public void onNext(AddJoinedUserToChatChatResponse response) {
+        System.out.println(String.format("Client onNext() with count of joined user id: %s at %s", response.getCountOfJoinedUser(), new Date()));
       }
 
       @Override
@@ -38,12 +38,12 @@ public class MainClient {
       }
     };
 
-    StreamObserver<AddJoinedUserToChatChatRequest> aRequestStreamObserver = aServiceStub.addJoinedUserToChatChat(responseObserver);
+    StreamObserver<AddJoinedUserToChatChatRequest> aRequestStreamObserver = chatServiceStub.addJoinedUserToChatChat(responseObserver);
 
     for (int i = 0; i < 10; i++) {
-      AddJoinedUserToChatChatRequest build = AddJoinedUserToChatChatRequest.newBuilder().setUserId(i).build();
+      AddJoinedUserToChatChatRequest request = AddJoinedUserToChatChatRequest.newBuilder().setUserId(i).build();
       //send next request/message
-      aRequestStreamObserver.onNext(build);
+      aRequestStreamObserver.onNext(request);
 
       Uninterruptibles.sleepUninterruptibly(1, TimeUnit.SECONDS);
     }
